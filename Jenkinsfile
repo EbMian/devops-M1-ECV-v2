@@ -1,7 +1,7 @@
 pipleline {
     agent any {
         stages {
-            stage ("install")
+            stage ("Install")
             {
                 steps {
                     sh 'npm ci'
@@ -9,18 +9,23 @@ pipleline {
                 
             }
             // Lancezz les tests et le lint
-            stage("lint")
-            {
-                steps {
-                    sh 'npm run lint'
+            stage("Qualité") {
+                parallel {
+                    stage("Lint")
+                    {
+                        steps {
+                            sh 'npm run lint'
+                        }
+                    }
+                    stage("Tests")
+                    {
+                        steps {
+                            sh 'npm run tests:coverage'
+                        }
+                    }
                 }
             }
-            stage("Tests")
-            {
-                steps {
-                    sh 'npm run tests:coverage'
-                }
-            }
+            
                 
         }
     }
