@@ -4,10 +4,11 @@ pipleline {
             stage ("install")
             {
                 steps {
-                    (sh 'npm ci')
+                    sh 'npm ci'
                 }
                 
             }
+            
                 
         }
     }
