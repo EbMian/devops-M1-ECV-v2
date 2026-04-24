@@ -1,14 +1,14 @@
 pipeline {
-    agent any {
+    agent any 
         stages {
-            stage ("Install")
+            stage("Install")
             {
                 steps {
                     sh 'npm ci'
                 }
                 
             }
-            // Lancezz les tests et le lint
+            // Lancez les tests et le lint
             stage("Qualité") {
                 parallel {
                     stage("Lint")
@@ -28,6 +28,6 @@ pipeline {
             
                 
         }
-    }
+
     
 }
