@@ -25,7 +25,12 @@ pipeline {
                     }
                 }
             }
-            
+            // Build docker de cette image en utilisant le daemon de l'hote
+            stage("Build") {
+                steps {
+                    sh 'docker ../build'
+                }
+            }
                 
         }
 
