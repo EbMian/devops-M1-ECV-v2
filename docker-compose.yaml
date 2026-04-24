@@ -1,0 +1,6 @@
+services:
+  jenkins:
+    build: .
+    container_name: jenkins-local-demo
+    user: root
+    

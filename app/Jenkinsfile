@@ -1,0 +1,15 @@
+pipleline {
+    agent any {
+        stages {
+            stage ("install")
+            {
+                steps {
+                    (sh 'npm ci')
+                }
+                
+            }
+                
+        }
+    }
+    
+}
